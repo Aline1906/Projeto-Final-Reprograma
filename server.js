@@ -1,11 +1,15 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 const db = require('./src/data/database')
 db.connect()
 
-const idosoRouter = require('./src/routes/idoso.routes')
-app.use('idosos', idosoRouter)
+app.use(cors());
+app.use(express.json());
+
+const idososRouter = require('./src/routes/idoso.routes')
+app.use('/idosos', idososRouter)
 
 app.use(express.json())
 
