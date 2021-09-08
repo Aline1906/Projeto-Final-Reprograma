@@ -12,12 +12,12 @@ router.get("/oi", (req, res)=>{
 router.get('/', controllers.getAll)
 
 // CREAT criar cadastro -> post -> save 
-router.post('/', controllers.createIdoso)
+router.post('/cadastrar', controllers.createIdoso)
 
 // Atualizar um cadastro via id ->   ->
-router.patch('/idoso/:id/atualiza', controllers.atualizaIdoso)
+router.patch('/:id', controllers.atualizaIdoso)
 
 // DELETE um cadastro via id ->   ->
-router.delete('/idoso/:id/delete', controllers.deleteIdoso)
+router.delete('/:id', controllers.deleteIdoso)
 
 module.exports = router
