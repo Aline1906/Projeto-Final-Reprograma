@@ -47,6 +47,9 @@ const atualizaIdoso = async(request, response) =>{
 const deleteIdoso = async(request, response) =>{
 
     const requestId = res.params.id;
+    res.status(200).send({"menssagem": "Cadastro deletado com sucesso"})
+
+    
     }
 
 
