@@ -4,6 +4,10 @@ const { getAll } = require('../controllers/idosoController')
 const router = express.Router()
 const controllers = require('../controllers/idosoController')
 
+
+router.get("/oi", (req, res)=>{
+    resp.status(200).send({"menssagem": "ta funcionado"})
+})
 // READ - listar todos os idosos cadastrados  -> get -> find
 router.get('/', controllers.getAll)
 
