@@ -45,7 +45,7 @@ const atualizaIdoso = async(request, response) =>{
 }
 const deleteIdoso = async(req, res) =>{
     try{
-    const idosos = await Idosos.findById(req.params.id)
+    const idosos = await idosos.findById(req.params.id)
      // se vc nao encontrar me retorne um erro
     
           if(idosos == null){
