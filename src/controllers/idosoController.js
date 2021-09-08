@@ -43,14 +43,36 @@ const atualizaIdoso = async(request, response) =>{
         filteredPost
     })
 }
+const deleteIdoso = async(req, res) =>{
+    try{
+    const idosos = await Idosos.findById(req.params.id)
+     // se vc nao encontrar me retorne um erro
+    
+          if(idosos == null){
+             return res.status(404).json({message: "Cadastro não encontrado"})
+          }
+    
+      
+       //deletando o cadastro
+        await idosos.remove()
+    
+       //retorne o documento deletados
+       res.status(200).json({message: "Cadastro deletado"})
+      }catch(err){
+    
+          //se houve qualquer erro mostre o erro acima
+          res.status(500).json({message: err.message})
+      }
+    }
+    
 
-const deleteIdoso = async(request, response) =>{
+//const deleteIdoso = async(request, response) =>{
 
-    const requestId = req.params.id;
-    res.status(200).send({"menssagem": "Cadastro deletado com sucesso"})
+    //const requestId = req.params.id;
+    //res.status(200).send({"menssagem": "Cadastro deletado com sucesso"})
 
     
-    }
+   // }
 
 
 module.exports = {
