@@ -45,9 +45,9 @@ const atualizaCadastro = async(req,res) => {
             }
             // se no corpo da requisicao tem algo digitado, considere a alteração
             if(req.body.nome != null){
-    
-            nome = req.body.nome,
-            endereco = req.body.endereco
+
+                idosos.nome = req.body.nome
+                idosos.endereco = req.body.endereco
             
          }
             //salvando novo cadastro
