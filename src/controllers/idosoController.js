@@ -51,7 +51,7 @@ const atualizaCadastro = async(req,res) => {
             
          }
             //salvando novo cadastro
-            const cadastroAtualizado = await Idoso.save()
+            const cadastroAtualizado = await idosos.save()
     
          //retorne o documento atualizado
             res.status(200).json(cadastroAtualizado)
