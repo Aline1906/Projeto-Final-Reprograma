@@ -15,7 +15,7 @@ router.get('/', controllers.getAll)
 router.post('/cadastrar', controllers.createIdoso)
 
 // Atualizar um cadastro via id ->   ->
-router.put('/:id', controllers.atualizaCadastro)
+router.patch('/:id', controllers.atualizaCadastro)
 
 // DELETE um cadastro via id ->   ->
 router.delete('/:id', controllers.deleteIdoso)
