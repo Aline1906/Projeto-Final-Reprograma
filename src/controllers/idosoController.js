@@ -11,10 +11,16 @@ const getAll = async(request, response)=>{
     response.status(200).json(idosos)
 }
 
-const getById = async(request, response) =>{
+const getCadastroPorId = async (req, res) => { 
+    const { cadIdosos } = req.params
     
-    const idRequerido = request.params.id;
-    const idFiltrado = idoso.find(idoso=>idoso.id == idRequerido)
+    Idoso.find({ idosos : cadIdosos }) 
+    
+    .then((list)=> { 
+    
+    if(!list.length > 0) return res.status(404).send({"message": "Cadastro n encontrado, tente novamente."}) 
+    
+    return res.status(200).send(list) }) 
 }
 
 const createIdoso = async(request, response) =>{
@@ -95,7 +101,7 @@ const deleteIdoso = async(req, res) =>{
 
 module.exports = {
     getAll,
-    getById,
+    getCadastroPorId,
     createIdoso,
     atualizaCadastro,
     deleteIdoso

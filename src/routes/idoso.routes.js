@@ -11,7 +11,7 @@ router.get('/', controllers.getAll)
 
 // encontrar idoso por id
 
-router.get('/:id', controllers.getById)
+router.get('/:id', controllers.getCadastroPorId)
 // CREAT criar cadastro -> post -> save 
 router.post('/cadastrar', controllers.createIdoso)
 
