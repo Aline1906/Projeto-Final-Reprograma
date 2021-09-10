@@ -3,11 +3,12 @@ const express = require('express')
 const { getAll } = require('../controllers/idosoController')
 const router = express.Router()
 const controllers = require('../controllers/idosoController')
+const index = require('../routes/index')
 
 
 
 // READ - listar todos os idosos cadastrados  -> get -> find
-router.get('/idosos', controllers.getAll)
+router.get('/', controllers.getAll)
 
 // encontrar idoso por id
 
