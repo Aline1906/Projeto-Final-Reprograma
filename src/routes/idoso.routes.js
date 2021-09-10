@@ -5,12 +5,13 @@ const router = express.Router()
 const controllers = require('../controllers/idosoController')
 
 
-router.get("/oi", (req, res)=>{
-    res.status(200).send({"menssagem": "ta funcionado"})
-})
+
 // READ - listar todos os idosos cadastrados  -> get -> find
 router.get('/', controllers.getAll)
 
+// encontrar idoso por id
+
+router.get('/:id', controllers.getById)
 // CREAT criar cadastro -> post -> save 
 router.post('/cadastrar', controllers.createIdoso)
 

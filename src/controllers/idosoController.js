@@ -1,5 +1,6 @@
 const { response } = require('express')
 const mongoose = require('mongoose')
+const idoso = require('../models/idoso')
 const Idoso = require('../models/idoso')
 
 
@@ -8,6 +9,12 @@ const getAll = async(request, response)=>{
 
     const idosos = await Idoso.find()
     response.status(200).json(idosos)
+}
+
+const getById = async(request, response) =>{
+    
+    const idRequerido = request.params.id;
+    const idFiltrado = idoso.find(idoso=>idoso.id == idRequerido)
 }
 
 const createIdoso = async(request, response) =>{
@@ -88,6 +95,7 @@ const deleteIdoso = async(req, res) =>{
 
 module.exports = {
     getAll,
+    getById,
     createIdoso,
     atualizaCadastro,
     deleteIdoso
