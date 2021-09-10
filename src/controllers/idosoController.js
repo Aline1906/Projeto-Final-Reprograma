@@ -11,12 +11,6 @@ const getAll = async(request, response)=>{
     response.status(200).json(idosos)
 }
 
-const getCadastroPorId = async (req, res) => { 
-    const idRequerido = req.params.id;
-    const idFiltrado = Idoso.find(idoso=>idoso.id == idRequerido)
-
-    res.status(200).send(idFiltrado)
-}
 
 const createIdoso = async(request, response) =>{
     // permito a criação de um cadastro
@@ -70,6 +64,11 @@ const atualizaCadastro = async(req,res) => {
         }
     
       }
+const getCadastroPorId = async (req, res) => { 
+
+        const idosos = await Idoso.findById(req.params.id)
+        res.status(200).send(idosos)
+    }
 
 const deleteIdoso = async(req, res) =>{
          try{
