@@ -12,15 +12,10 @@ const getAll = async(request, response)=>{
 }
 
 const getCadastroPorId = async (req, res) => { 
-    const { cadIdosos } = req.params
-    
-    Idoso.find({ idosos : cadIdosos }) 
-    
-    .then((list)=> { 
-    
-    if(!list.length > 0) return res.status(404).send({"message": "Cadastro n encontrado, tente novamente."}) 
-    
-    return res.status(200).send(list) }) 
+    const idRequerido = req.params.id;
+    const idFiltrado = Idoso.find(idoso=>idoso.id == idRequerido)
+
+    res.status(200).send(idFiltrado)
 }
 
 const createIdoso = async(request, response) =>{
@@ -38,7 +33,7 @@ const createIdoso = async(request, response) =>{
    }
 
    try{
-    const novoCadastro = await idoso.save()
+   const novoCadastro = await idoso.save()
    response.status(201).json(novoCadastro)
 
 }   catch(err){
@@ -50,7 +45,7 @@ const atualizaCadastro = async(req,res) => {
             // encontrar um cadastro pelo id
         try{
          
-            const idosos = await Idoso.findById(req.params.id)
+        const idosos = await Idoso.findById(req.params.id)
             
             //se não encontrar retorne um erro
             if(idosos == null){
@@ -64,7 +59,7 @@ const atualizaCadastro = async(req,res) => {
             
          }
             //salvando novo cadastro
-            const cadastroAtualizado = await idosos.save()
+        const cadastroAtualizado = await idosos.save()
     
          //retorne o documento atualizado
             res.status(200).json(cadastroAtualizado)
