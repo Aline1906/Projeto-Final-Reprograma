@@ -3,7 +3,6 @@ const express = require('express')
 const { getAll } = require('../controllers/idosoController')
 const router = express.Router()
 const controllers = require('../controllers/idosoController')
-const index = require('../routes/index')
 
 
 
@@ -11,8 +10,8 @@ const index = require('../routes/index')
 router.get('/', controllers.getAll)
 
 // encontrar idoso por id
-
 router.get('/:id', controllers.getCadastroPorId)
+
 // CREAT criar cadastro -> post -> save 
 router.post('/cadastrar', controllers.createIdoso)
 
