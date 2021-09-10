@@ -67,6 +67,10 @@ const atualizaCadastro = async(req,res) => {
 const getCadastroPorId = async (req, res) => { 
 
         const idosos = await Idoso.findById(req.params.id)
+        
+        if(idosos == null){
+            return res.status(404).json({message: "Cadastro não encontrado"})
+         }
         res.status(200).send(idosos)
     }
 
